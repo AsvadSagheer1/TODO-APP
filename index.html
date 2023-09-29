@@ -10,13 +10,21 @@
 </head>
 
 <body>
+    <div style="height: 40px; width: 100%;">
+        <div class="alert alert-danger text-center" id="alertBox" style="display: none;" role="alert">
+            Please type something in the box!
+        </div>
+    </div>
+
     <div class="container text-center">
         <h1 class="my-3 text-primary">TODO APP</h1>
         <input class="my-3 form-control" type="text" name="" id="text"> <br>
-        <button class="btn btn-primary mb-3" type="button" id="AddToDo" onclick="addToDo()"><i class="fa fa-plus-square"></i> Add Todo</button>
-        <button class="btn btn-danger mb-3" type="button" id="ClearAll" onclick="clearAll()"><i class="fa fa-trash-o"></i> Clear All</button>
+        <button class="btn btn-primary mb-3 mx-2" type="button" id="AddToDo" onclick="addToDo()"><i
+                class="fa fa-plus-square"></i> Add Todo</button>
+        <button class="btn btn-danger mb-3 mx-2" type="button" id="ClearAll" onclick="clearAll()"><i
+                class="fa fa-trash-o"></i> Clear All</button>
         <hr>
-        <ol class="tasks-list my-3"></ol>
+        <ol class="tasks-list my-3" style="list-style-type: decimal"></ol>
     </div>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

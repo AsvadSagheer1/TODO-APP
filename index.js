@@ -28,7 +28,7 @@ function clearAll() {
     alertBox.style.display = "none";
 }
 function editToDo(item) {
-    if (item.innerHTML === "Done") {
+    if (item.textContent === "Done") {
         const toDoName1 = item.previousElementSibling.value;
         const par = document.createElement("p")
         par.setAttribute("style", "display: inline-block; width : 500px")

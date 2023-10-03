@@ -15,6 +15,7 @@ function addToDo() {
     }
     else {
         alertBox.style.display = "block";
+        alertBox.textContent = "Please type something in the box!";
     }
 }
 
@@ -23,10 +24,16 @@ function clearThisToDo(i) {
 }
 
 function clearAll() {
-    list.innerHTML = ""
-    input.value = ""
-    alertBox.style.display = "none";
+    if (list.children.length === 0) {
+        alertBox.style.display = "block";
+        alertBox.textContent = "The list is already empty.";
+    } else {
+        list.innerHTML = "";
+        input.value = "";
+        alertBox.style.display = "none";
+    }
 }
+
 function editToDo(item) {
     if (item.textContent === "Done") {
         const toDoName1 = item.previousElementSibling.value;

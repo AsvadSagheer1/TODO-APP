@@ -2,6 +2,12 @@ let input = document.querySelector("input");
 let list = document.querySelector(".tasks-list");
 let task = document.querySelector(".clear-task")
 let alert = document.querySelector("#alertBox")
+
+function saveAll() {
+    const allToDos = JSON.stringify(list.innerHTML)
+    localStorage.setItem("myToDos", allToDos)
+}
+
 function addToDo() {
     if (input.value !== "") {
         let newTask = document.createElement("div");
@@ -17,10 +23,12 @@ function addToDo() {
         alertBox.style.display = "block";
         alertBox.textContent = "Please type something in the box!";
     }
+    saveAll()
 }
 
 function clearThisToDo(i) {
     console.log(i.parentNode.remove())
+    saveAll()
 }
 
 function clearAll() {
@@ -32,6 +40,7 @@ function clearAll() {
         input.value = "";
         alertBox.style.display = "none";
     }
+    saveAll()
 }
 
 function editToDo(item) {
@@ -51,4 +60,10 @@ function editToDo(item) {
         input.classList.add("mx-5")
         item.parentElement.replaceChild(input, item.previousElementSibling)
     }
+    saveAll()
+}
+
+function savedToDos() {
+    const allToDos = JSON.parse(localStorage.getItem("myToDos"))
+    list.innerHTML = allToDos
 }
